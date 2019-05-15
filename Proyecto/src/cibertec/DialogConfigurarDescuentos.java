@@ -3,6 +3,7 @@ package cibertec;
 import java.awt.EventQueue;
 
 import javax.swing.JDialog;
+import java.awt.FlowLayout;
 
 public class DialogConfigurarDescuentos extends JDialog {
 
@@ -29,7 +30,7 @@ public class DialogConfigurarDescuentos extends JDialog {
 	public DialogConfigurarDescuentos() {
 		setTitle("Configurar descuentos");
 		setBounds(100, 100, 450, 300);
-		getContentPane().setLayout(null);
+		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 	}
 
