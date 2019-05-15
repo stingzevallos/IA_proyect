@@ -29,6 +29,7 @@ public class DialogConfigurarDescuentos extends JDialog {
 	public DialogConfigurarDescuentos() {
 		setTitle("Configurar descuentos");
 		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(null);
 
 	}
 
