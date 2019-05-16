@@ -130,26 +130,22 @@ public class DialogVender extends JDialog implements ActionListener {
 		int cantidad;
 		double precio, descuento;
 		double importeCompra, importeDescuento, importePagar;
-		String obsequio = "No corresponde obsequio";
+		String obsequio = "No corresponde obsequio", premioSorpresa = "No corresponde obsequio";
 		
 		cantidad = Integer.parseInt( textFieldCantidad.getText());
 		precio = Double.parseDouble( textFieldPrecio.getText());
 		
-		if ( cantidad > 15 )
-			descuento = Tienda.porcentaje4/100;
-		else if ( cantidad >= 11 )
-			descuento = Tienda.porcentaje3/100;
-		else if ( cantidad >= 6 )
-			descuento = Tienda.porcentaje2/100;
-		else
-			descuento = Tienda.porcentaje1/100;
-		
-		if ( cantidad >= Tienda.cantidadMinimaObsequiable )
-			obsequio = Tienda.obsequio;
+		actualizarInventario(cantidad);		// Actualiza el n° de clientes, unidades vendidas, etc
+		descuento = generarDescuento(cantidad);		// Generamos el descuento en base a la cantidad
 		
 		importeCompra = cantidad * precio;
 		importeDescuento = importeCompra * descuento;
 		importePagar = importeCompra - importeDescuento;
+		
+		if ( cantidad >= Tienda.cantidadMinimaObsequiable )
+			obsequio = Tienda.obsequio;
+		if ( Tienda.numeroCliente == Tienda.numeroClienteSorpresa ) 
+			premioSorpresa = Tienda.premioSorpresa;
 		
 		textArea.setText("BOLETA DE VENTA\n");
 		textArea.append("Marca\t\t\t: " + comboBox.getSelectedItem().toString() + "\n"
@@ -159,9 +155,48 @@ public class DialogVender extends JDialog implements ActionListener {
 				+ "Importe de descuento\t: S/." + importeDescuento + "\n"
 				+ "Importe a pagar\t\t: S/." + importePagar + "\n"
 				+ "Obsequio\t\t: " + obsequio + "\n"
-				+ "Premio Sorpresa\t\t: " );
+				+ "Premio Sorpresa\t\t: " + premioSorpresa );
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
+	
+	protected double generarDescuento( int cantidad ) {
+		double des;
+		if ( cantidad > 15 )
+			des = Tienda.porcentaje4/100;
+		else if ( cantidad >= 11 )
+			des = Tienda.porcentaje3/100;
+		else if ( cantidad >= 6 )
+			des = Tienda.porcentaje2/100;
+		else
+			des = Tienda.porcentaje1/100;
+		return des;
+	}
+	protected void actualizarInventario( int c ) {
+		switch ( comboBox.getSelectedIndex() ) {
+			case 0:
+				Tienda.unidadesVendidas0+=c;
+				Tienda.ventas0++;
+				break;
+			case 1:
+				Tienda.unidadesVendidas1+=c;
+				Tienda.ventas1++;
+				break;
+			case 2:
+				Tienda.unidadesVendidas2+=c;
+				Tienda.ventas2++;
+				break;
+			case 3:
+				Tienda.unidadesVendidas3+=c;
+				Tienda.ventas3++;
+				break;
+			case 4:
+				Tienda.unidadesVendidas4+=c;
+				Tienda.ventas4++;
+				break;
+		}
+		Tienda.numeroCliente++;
+	}
+	
 }

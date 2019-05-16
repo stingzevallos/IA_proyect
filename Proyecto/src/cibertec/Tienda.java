@@ -20,38 +20,48 @@ public class Tienda extends JFrame implements ActionListener {
 	
 	// Datos mínimos del primer colchón
 	public static String marca0 = "Suavestar";
-	public static double precio0 = 499.0;
-	public static int garantia0 = 7;
-	public static String tamaño0 = "1 1/2 Plaza";
-	public static String material0 = "Tela Tricot Acolchada";
-	
+	public static double precio0 = 499.0;                                          
+	public static int garantia0 = 7;                                               
+	public static String tamaño0 = "1 1/2 Plaza";                                  
+	public static String material0 = "Tela Tricot Acolchada";                      
+	public static int ventas0 = 0;                                                 
+	public static int unidadesVendidas0 = 0;
+
 	// Datos mínimos del segundo colchón
 	public static String marca1 = "Springwall";
 	public static double precio1 = 679.0;
 	public static int garantia1 = 10;
 	public static String tamaño1 = "2 Plazas";
-	public static String material1 = "Tejido de Punto con Algodón Orgánico";
+	public static String material1 = "Tejido de Punto con Algodón Orgánico";                      
+	public static int ventas1 = 0;                                                 
+	public static int unidadesVendidas1 = 0;
 	
 	// Datos mínimos del tercer colchón
 	public static String marca2 = "Paraiso";
 	public static double precio2 = 479.0;
 	public static int garantia2 = 5;
 	public static String tamaño2 = "1 1/2 Plazas";
-	public static String material2 = "Tejido de Punto";
+	public static String material2 = "Tejido de Punto";                      
+	public static int ventas2 = 0;                                                 
+	public static int unidadesVendidas2 = 0;
 	
 	// Datos mínimos del cuarto colchón
 	public static String marca3 = "Drimer";
 	public static double precio3 = 749.0;
 	public static int garantia3 = 4;
 	public static String tamaño3 = "Queen";
-	public static String material3 = "Jacquard";
+	public static String material3 = "Jacquard";                      
+	public static int ventas3 = 0;                                                 
+	public static int unidadesVendidas3 = 0;
 	
 	// Datos mínimos del quinto colchón
 	public static String marca4 = "Cisne";
 	public static double precio4 = 389.0;
 	public static int garantia4 = 2;
 	public static String tamaño4 = "1 1/2 Plazas";
-	public static String material4 = "Tejido de Punto";
+	public static String material4 = "Tejido de Punto";                      
+	public static int ventas4 = 0;                                                 
+	public static int unidadesVendidas4 = 0;
 	
 	// Porcentajes de descuento
 	public static double porcentaje1 = 7.5;
@@ -73,6 +83,9 @@ public class Tienda extends JFrame implements ActionListener {
 	
 	// Premio sorpresa
 	public static String premioSorpresa = "Un polo";
+	
+	// Cantidad de clientes atendidos
+	public static int numeroCliente = 0;
 	
 	private JMenuBar menuBar;
 	private JMenu mnArchivo;
