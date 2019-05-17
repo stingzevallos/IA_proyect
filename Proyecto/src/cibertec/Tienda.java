@@ -168,6 +168,7 @@ public class Tienda extends JFrame implements ActionListener {
 		mnVentas.add(mntmVender);
 		
 		mntmGenerarReportes = new JMenuItem("Generar reportes");
+		mntmGenerarReportes.addActionListener(this);
 		mnVentas.add(mntmGenerarReportes);
 		
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
@@ -209,6 +210,9 @@ public class Tienda extends JFrame implements ActionListener {
 		if (e.getSource() == mntmSalir) {
 			actionPerformedMntmSalir(e);
 		}
+		if (e.getSource() == mntmGenerarReportes ) {
+			actionPerformedMntmGenerarReportes(e);
+		}
 		
 	}
 	protected void actionPerformedMntmSalir(ActionEvent e) {
@@ -227,5 +231,9 @@ public class Tienda extends JFrame implements ActionListener {
 	protected void actionPerformedMntmListarColchones(ActionEvent e) {
 		DialogListar viewListar = new DialogListar();
 		viewListar.setVisible(true);
+	}
+	protected void actionPerformedMntmGenerarReportes(ActionEvent e) {
+		DialogGenerarReportes viewGenerarReportes = new DialogGenerarReportes();
+		viewGenerarReportes.setVisible(true);
 	}
 }

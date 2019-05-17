@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import java.awt.FlowLayout;
+import javax.swing.JLabel;
 
 public class DialogConfigurarDescuentos extends JDialog {
 
@@ -33,5 +34,4 @@ public class DialogConfigurarDescuentos extends JDialog {
 		getContentPane().setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 
 	}
-
 }
