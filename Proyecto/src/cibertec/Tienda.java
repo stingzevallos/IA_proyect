@@ -18,6 +18,8 @@ public class Tienda extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
+	//Datos de los desarrolladores de la aplicacion
+	
 	// Datos mínimos del primer colchón
 	public static String marca0 = "Suavestar";
 	public static double precio0 = 499.0;                                          
@@ -150,6 +152,7 @@ public class Tienda extends JFrame implements ActionListener {
 		menuBar.add(mnMantenimiento);
 		
 		mntmConsultarColchon = new JMenuItem("Consultar colch\u00F3n");
+		mntmConsultarColchon.addActionListener(this);
 		mnMantenimiento.add(mntmConsultarColchon);
 		
 		mntmModificarColchon = new JMenuItem("Modificar colch\u00F3n");
@@ -226,9 +229,17 @@ public class Tienda extends JFrame implements ActionListener {
 		if (e.getSource() == mntmAcercaDeTienda ) {
 			actionPerformedMntmAcercaDeTienda(e);
 		}
+		if (e.getSource() == mntmConsultarColchon ) {
+			actionPerformedMntmConsultarColchon(e);
+		}
 		
 	}
 	
+
+	private void actionPerformedMntmConsultarColchon(ActionEvent e) {
+		DialogConsultarColchon viewConsultarColchon = new DialogConsultarColchon();
+		viewConsultarColchon.setVisible(true);
+	}
 
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		int salir = JOptionPane.showConfirmDialog(this, "Exit Tienda 1.0 ?", "Confirm Exit", JOptionPane.YES_NO_OPTION);

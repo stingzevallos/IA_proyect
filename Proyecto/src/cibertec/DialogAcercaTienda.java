@@ -5,9 +5,13 @@ import java.awt.Font;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
-import javax.swing.BoxLayout;
 
 public class DialogAcercaTienda extends JDialog {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/**
 	 * Launch the application.
@@ -37,7 +41,7 @@ public class DialogAcercaTienda extends JDialog {
 		
 		JLabel lblTienda = new JLabel("Tienda 1.0");
 		lblTienda.setFont(new Font("Tahoma", Font.BOLD, 23));
-		lblTienda.setBounds(121, 28, 146, 50);
+		lblTienda.setBounds(120, 27, 146, 50);
 		getContentPane().add(lblTienda);
 		
 		JLabel lblAutores = new JLabel("Autores");
@@ -45,20 +49,20 @@ public class DialogAcercaTienda extends JDialog {
 		lblAutores.setBounds(153, 133, 70, 14);
 		getContentPane().add(lblAutores);
 		
-		JLabel lblNewLabel = new JLabel("Sting");
-		lblNewLabel.setBounds(65, 185, 231, 14);
+		JLabel lblNewLabel = new JLabel("Sting Luis Zevallos Baca");
+		lblNewLabel.setBounds(65, 185, 191, 14);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblMarisabel = new JLabel("Marisabel");
-		lblMarisabel.setBounds(65, 210, 231, 20);
+		JLabel lblMarisabel = new JLabel("Merisabel Ruelas Quenaya");
+		lblMarisabel.setBounds(65, 210, 191, 20);
 		getContentPane().add(lblMarisabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Loida");
-		lblNewLabel_1.setBounds(65, 244, 46, 14);
+		JLabel lblNewLabel_1 = new JLabel("Loida Elizabeth Cubas Romero");
+		lblNewLabel_1.setBounds(65, 244, 191, 14);
 		getContentPane().add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_2 = new JLabel("Leidy Danitza Larico Alvarez");
-		lblNewLabel_2.setBounds(65, 269, 153, 14);
+		lblNewLabel_2.setBounds(65, 269, 191, 14);
 		getContentPane().add(lblNewLabel_2);
 
 	}
