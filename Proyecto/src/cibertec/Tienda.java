@@ -175,9 +175,11 @@ public class Tienda extends JFrame implements ActionListener {
 		menuBar.add(mnConfiguracion);
 		
 		mntmConfigurarDescuentos = new JMenuItem("Configurar descuentos");
+		mntmConfigurarDescuentos.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarDescuentos);
 		
 		mntmConfigurarObsequio = new JMenuItem("Configurar obsequio");
+		mntmConfigurarObsequio.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarObsequio);
 		
 		mntmConfigurarCantidadOptima = new JMenuItem("Configurar cantidad optima de colchones vendidos");
@@ -190,7 +192,9 @@ public class Tienda extends JFrame implements ActionListener {
 		menuBar.add(mnAyuda);
 		
 		mntmAcercaDeTienda = new JMenuItem("Acerca de Tienda");
+		mntmAcercaDeTienda.addActionListener(this);
 		mnAyuda.add(mntmAcercaDeTienda);
+		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -213,8 +217,19 @@ public class Tienda extends JFrame implements ActionListener {
 		if (e.getSource() == mntmGenerarReportes ) {
 			actionPerformedMntmGenerarReportes(e);
 		}
+		if (e.getSource() == mntmConfigurarDescuentos ) {
+			actionPerformedMntmConfigurarDescuentos(e);
+		}
+		if (e.getSource() == mntmConfigurarObsequio ) {
+			actionPerformedMntmConfigurarObsequio(e);
+		}
+		if (e.getSource() == mntmAcercaDeTienda ) {
+			actionPerformedMntmAcercaDeTienda(e);
+		}
 		
 	}
+	
+
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		int salir = JOptionPane.showConfirmDialog(this, "Exit Tienda 1.0 ?", "Confirm Exit", JOptionPane.YES_NO_OPTION);
 		if ( salir == 0 )
@@ -235,5 +250,19 @@ public class Tienda extends JFrame implements ActionListener {
 	protected void actionPerformedMntmGenerarReportes(ActionEvent e) {
 		DialogGenerarReportes viewGenerarReportes = new DialogGenerarReportes();
 		viewGenerarReportes.setVisible(true);
+	}
+	private void actionPerformedMntmConfigurarDescuentos(ActionEvent e) {
+		DialogConfigurarDescuentos viewConfigurarDescuentos = new DialogConfigurarDescuentos();
+		viewConfigurarDescuentos.setVisible(true);
+	}
+
+	private void actionPerformedMntmConfigurarObsequio(ActionEvent e) {
+		DialogConfigurarObsequio viewConfigurarObsequio = new DialogConfigurarObsequio();
+		viewConfigurarObsequio.setVisible(true);
+	}
+
+	private void actionPerformedMntmAcercaDeTienda(ActionEvent e) {
+		DialogAcercaTienda viewAcercaTienda = new DialogAcercaTienda();
+		viewAcercaTienda.setVisible(true);
 	}
 }
