@@ -49,19 +49,19 @@ public class DialogAcercaTienda extends JDialog {
 		lblAutores.setBounds(153, 133, 70, 14);
 		getContentPane().add(lblAutores);
 		
-		JLabel lblNewLabel = new JLabel("Sting Luis Zevallos Baca");
+		JLabel lblNewLabel = new JLabel(Tienda.desarrollador1);
 		lblNewLabel.setBounds(65, 185, 191, 14);
 		getContentPane().add(lblNewLabel);
 		
-		JLabel lblMarisabel = new JLabel("Merisabel Ruelas Quenaya");
+		JLabel lblMarisabel = new JLabel(Tienda.desarrollador2);
 		lblMarisabel.setBounds(65, 210, 191, 20);
 		getContentPane().add(lblMarisabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("Loida Elizabeth Cubas Romero");
+		JLabel lblNewLabel_1 = new JLabel(Tienda.desarrollador3);
 		lblNewLabel_1.setBounds(65, 244, 191, 14);
 		getContentPane().add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_2 = new JLabel("Leidy Danitza Larico Alvarez");
+		JLabel lblNewLabel_2 = new JLabel(Tienda.desarrollador4);
 		lblNewLabel_2.setBounds(65, 269, 191, 14);
 		getContentPane().add(lblNewLabel_2);
 

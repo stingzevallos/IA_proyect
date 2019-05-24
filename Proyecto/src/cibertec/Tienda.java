@@ -19,6 +19,11 @@ public class Tienda extends JFrame implements ActionListener {
 	private JPanel contentPane;
 	
 	//Datos de los desarrolladores de la aplicacion
+	public static String desarrollador1 = "Sting Luis Zevallos Baca";
+	public static String desarrollador2 = "Merisabel Ruelas Quenaya";
+	public static String desarrollador3 = "Loida Elizabeth Cubas Romero";
+	public static String desarrollador4 = "Leidy Danitza Larico Alvarez";
+			
 	
 	// Datos mínimos del primer colchón
 	public static String marca0 = "Suavestar";
