@@ -38,6 +38,7 @@ public class DialogConfigurarPremioSorpresa extends JDialog {
 	 * Create the dialog.
 	 */
 	public DialogConfigurarPremioSorpresa() {
+		setModal(true);
 		setTitle("Configurar premio sorpresa ");
 		setBounds(100, 100, 374, 149);
 		getContentPane().setLayout(null);

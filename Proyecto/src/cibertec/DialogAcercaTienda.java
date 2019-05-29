@@ -39,7 +39,7 @@ public class DialogAcercaTienda extends JDialog {
 		setBounds(100, 100, 429, 418);
 		getContentPane().setLayout(null);
 		
-		JLabel lblTienda = new JLabel("Tienda 1.0");
+		JLabel lblTienda = new JLabel(Tienda.NOMBRE_TIENDA);
 		lblTienda.setFont(new Font("Tahoma", Font.BOLD, 23));
 		lblTienda.setBounds(120, 27, 146, 50);
 		getContentPane().add(lblTienda);

@@ -73,11 +73,6 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 			txtO.setColumns(10);
 		}
 		{
-			JButton btnAceptar = new JButton("Aceptar");
-			btnAceptar.setBounds(404, 9, 97, 25);
-			contentPanel.add(btnAceptar);
-		}
-		{
 			btnCancelar = new JButton("Cancelar");
 			btnCancelar.addActionListener(this);
 			btnCancelar.setBounds(404, 36, 97, 25);
@@ -86,7 +81,7 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 		{
 			btnAceptar = new JButton("Aceptar");
 			btnAceptar.addActionListener(this);
-			btnAceptar.setBounds(432, 9, 97, 25);
+			btnAceptar.setBounds(404, 9, 97, 25);
 			contentPanel.add(btnAceptar);
 		}
 	}

@@ -37,6 +37,7 @@ public class DialogConfigurarCantidadOptimaColchones extends JDialog {
 	 * Create the dialog.
 	 */
 	public DialogConfigurarCantidadOptimaColchones() {
+		setModal(true);
 		setTitle(" Configurar cantidad \u00F3ptima de colchones vendidos ");
 		setBounds(100, 100, 450, 122);
 		getContentPane().setLayout(null);

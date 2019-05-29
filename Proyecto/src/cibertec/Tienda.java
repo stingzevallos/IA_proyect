@@ -18,6 +18,9 @@ public class Tienda extends JFrame implements ActionListener {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	
+	//Nombre de la Tienda
+	public static String NOMBRE_TIENDA = "DREAM";
+	
 	//Datos de los desarrolladores de la aplicacion
 	public static String desarrollador1 = "Sting Luis Zevallos Baca";
 	public static String desarrollador2 = "Merisabel Ruelas Quenaya";
@@ -139,7 +142,7 @@ public class Tienda extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Tienda() {
-		setTitle("Tienda 1.0");
+		setTitle(NOMBRE_TIENDA);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 762, 465);
 		
