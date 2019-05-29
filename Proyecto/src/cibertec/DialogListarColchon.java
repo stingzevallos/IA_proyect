@@ -10,7 +10,11 @@ import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DialogListar extends JDialog implements ActionListener {
+public class DialogListarColchon extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JScrollPane scrollPane;
 	private JButton btnListar;
 	private JButton btnCerrar;
@@ -21,7 +25,7 @@ public class DialogListar extends JDialog implements ActionListener {
 	 */
 	public static void main(String[] args) {
 		try {
-			DialogListar dialog = new DialogListar();
+			DialogListarColchon dialog = new DialogListarColchon();
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		}
@@ -33,7 +37,7 @@ public class DialogListar extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	public DialogListar() {
+	public DialogListarColchon() {
 		setModal(true);
 		setTitle("Listado de colchones");
 		setBounds(100, 100, 482, 323);
@@ -70,40 +74,22 @@ public class DialogListar extends JDialog implements ActionListener {
 	}
 	protected void actionPerformedBtnListar(ActionEvent e) {
 		textArea.setText("Listado de colchones" +"\n\n");
-		imprimirColchones();
+		imprimirColchon( Tienda.marca0, Tienda.precio0, Tienda.garantia0, Tienda.tamaño0, Tienda.material0);
+		imprimirColchon( Tienda.marca1, Tienda.precio1, Tienda.garantia1, Tienda.tamaño1, Tienda.material1);
+		imprimirColchon( Tienda.marca2, Tienda.precio2, Tienda.garantia2, Tienda.tamaño2, Tienda.material2);
+		imprimirColchon( Tienda.marca3, Tienda.precio3, Tienda.garantia3, Tienda.tamaño3, Tienda.material3);
+		imprimirColchon( Tienda.marca4, Tienda.precio4, Tienda.garantia4, Tienda.tamaño4, Tienda.material4);
 	}
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
-	protected void imprimirColchones() {
-		textArea.append("Marca\t: " + Tienda.marca0 + "\n" +
-				"Precio\t: " + Tienda.precio0 + "\n" +
-				"Garantia: " + Tienda.garantia0 + "\n" +
-				"Tamaño\t: " + Tienda.tamaño0 + "\n" +
-				"Material: " + Tienda.material0 + "\n" +
-				"\n" + 
-				"Marca\t: " + Tienda.marca1 + "\n" +
-				"Precio\t: " + Tienda.precio1 + "\n" +
-				"Garantia: " + Tienda.garantia1 + "\n" +
-				"Tamaño\t: " + Tienda.tamaño1 + "\n" +
-				"Material: " + Tienda.material1 + "\n" +
-				"\n" + 
-				"Marca\t: " + Tienda.marca2 + "\n" +
-				"Precio\t: " + Tienda.precio2 + "\n" +
-				"Garantia: " + Tienda.garantia2 + "\n" +
-				"Tamaño\t: " + Tienda.tamaño2 + "\n" +
-				"Material: " + Tienda.material2 + "\n" +
-				"\n" + 
-				"Marca\t: " + Tienda.marca3 + "\n" +
-				"Precio\t: " + Tienda.precio3 + "\n" +
-				"Garantia: " + Tienda.garantia3 + "\n" +
-				"Tamaño\t: " + Tienda.tamaño3 + "\n" +
-				"Material: " + Tienda.material3 + "\n" +
-				"\n" + 
-				"Marca\t: " + Tienda.marca4 + "\n" +
-				"Precio\t: " + Tienda.precio4 + "\n" +
-				"Garantia: " + Tienda.garantia4 + "\n" +
-				"Tamaño\t: " + Tienda.tamaño4 + "\n" +
-				"Material: " + Tienda.material4 + "\n" );
+	protected void imprimirColchon( String marca, double precio, int garantia, String tamaño, String material) {
+		textArea.append("Marca\t: " + marca + "\n" +
+				"Precio\t: " + precio + "\n" +
+				"Garantia: " + garantia + "\n" +
+				"Tamaño\t: " + tamaño + "\n" +
+				"Material: " + material + "\n" +
+				"\n" );
 	}
+	
 }

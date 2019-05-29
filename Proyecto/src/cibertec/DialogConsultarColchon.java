@@ -25,7 +25,7 @@ public class DialogConsultarColchon extends JDialog implements ActionListener {
 	private JLabel lblGarantaaos;
 	private JLabel lblTamao;
 	private JLabel lblMaterial;
-	private JComboBox cbomarca;
+	private JComboBox<String> cbomarca;
 	private JButton btnCerrar;
 	private JTextField textFieldPrecio;
 	private JTextField textFieldGarantia;
@@ -78,16 +78,15 @@ public class DialogConsultarColchon extends JDialog implements ActionListener {
 		lblMaterial.setBounds(12, 135, 56, 16);
 		contentPanel.add(lblMaterial);
 		
-		cbomarca = new JComboBox();
+		cbomarca = new JComboBox<String>();
 		cbomarca.addActionListener(this);
-		cbomarca.setModel(new DefaultComboBoxModel(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
+		cbomarca.setModel(new DefaultComboBoxModel<String>(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
 		cbomarca.setBounds(109, 10, 116, 22);
 		contentPanel.add(cbomarca);
 		
 		textFieldPrecio = new JTextField();
 		textFieldPrecio.setText(Tienda.precio0+"");
 		textFieldPrecio.setEditable(false);
-		textFieldPrecio.addActionListener(this);
 		textFieldPrecio.setBounds(109, 39, 116, 22);
 		contentPanel.add(textFieldPrecio);
 		textFieldPrecio.setColumns(10);
@@ -118,22 +117,19 @@ public class DialogConsultarColchon extends JDialog implements ActionListener {
 		btnCerrar.setBounds(323, 9, 97, 25);
 		contentPanel.add(btnCerrar);
 	}
-	public void actionPerformed(ActionEvent arg0) {
-		if (arg0.getSource() == textFieldPrecio) {
-			actionPerformed(arg0);
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == cbomarca) {
+			actionPerformedComboBox(e);
 		}
-		if (arg0.getSource() == cbomarca) {
-			actionPerformedComboBox(arg0);
-		}
-		if (arg0.getSource() == btnCerrar) {
-			actionPerformedBtnCerrar(arg0);
+		if (e.getSource() == btnCerrar) {
+			actionPerformedBtnCerrar(e);
 		}
 	}
-	protected void actionPerformedBtnCerrar(ActionEvent arg0) {
+	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
-	protected void actionPerformedComboBox(ActionEvent arg0) {
-		int opcionColchon = (cbomarca.getSelectedIndex());
+	protected void actionPerformedComboBox(ActionEvent e) {
+		int opcionColchon = cbomarca.getSelectedIndex();
 		switch (opcionColchon) {
 		case 0:
 			textFieldPrecio.setText(Tienda.precio0 + "");

@@ -1,14 +1,10 @@
 package cibertec;
 
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
@@ -16,8 +12,12 @@ import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
 
 public class DialogGenerarReportes extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblTipoDeReporte;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JScrollPane scrollPane;
 	private JTextArea textArea;
 	private JButton btnCerrar;
@@ -47,9 +47,9 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 		lblTipoDeReporte.setBounds(10, 11, 98, 14);
 		getContentPane().add(lblTipoDeReporte);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.addActionListener(this);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Ventas por marca", "Marcas con venta optima", "Precios en relacion al promedio", "Precio promedio, mayor y menor"}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por marca", "Marcas con venta optima", "Precios en relacion al promedio", "Precio promedio, mayor y menor"}));
 		comboBox.setBounds(118, 8, 200, 20);
 		getContentPane().add(comboBox);
 		
@@ -145,10 +145,8 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 		colchonesOptimos+=esColchonOptimo( Tienda.marca4, Tienda.unidadesVendidas4);
 		if ( colchonesOptimos.isEmpty() )
 			colchonesOptimos = "No existen marcas con venta optima";
-		
 		textArea.setText("Colchones con venta optima\n");
 		textArea.append( colchonesOptimos);
-		
 	}
 	protected String esColchonOptimo( String marca, int unidades ) {
 		String colchonOptimo = "";
@@ -198,4 +196,5 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 						+ "Precio menor\t: S/." + menor + "\n"
 						+ "Precio mayor\t: S/." + mayor );
 	}
+	
 }

@@ -4,7 +4,6 @@ import java.awt.EventQueue;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
-import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 public class DialogConfigurarDescuentos extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblA;
 	private JLabel lblA_1;
 	private JLabel lblA_2;
@@ -105,6 +108,7 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		getContentPane().add(label_3);
 		
 		btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(this);
 		btnAceptar.setBounds(355, 9, 97, 25);
 		getContentPane().add(btnAceptar);
 		
@@ -118,8 +122,23 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		if (arg0.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(arg0);
 		}
+		if (arg0.getSource() == btnAceptar ) {
+			actionPerformedBtnAceptar(arg0);
+		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent arg0) {
+		dispose();
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
+		double p1,p2,p3,p4;
+		p1 = Double.parseDouble(txtP1.getText());
+		p2 = Double.parseDouble(txtP2.getText());
+		p3 = Double.parseDouble(txtP3.getText());
+		p4 = Double.parseDouble(txtP4.getText());
+		Tienda.porcentaje1 = p1;
+		Tienda.porcentaje2 = p2;
+		Tienda.porcentaje3 = p3;
+		Tienda.porcentaje4 = p4;
 		dispose();
 	}
 }

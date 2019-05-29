@@ -7,18 +7,23 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class DialogVender extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblMarca;
 	private JLabel lblPrecios;
 	private JLabel lblCantidad;
 	private JTextField textFieldPrecio;
 	private JTextField textFieldCantidad;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JTextArea textArea;
 	private JButton btnCerrar;
 	private JButton btnVender;
@@ -74,9 +79,9 @@ public class DialogVender extends JDialog implements ActionListener {
 		getContentPane().add(textFieldCantidad);
 		textFieldCantidad.setColumns(10);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.addActionListener(this);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
+		comboBox.setModel((ComboBoxModel<String>) new DefaultComboBoxModel<String>(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
 		comboBox.setBounds(97, 8, 116, 20);
 		getContentPane().add(comboBox);
 		
@@ -109,28 +114,28 @@ public class DialogVender extends JDialog implements ActionListener {
 	protected void actionPerformedComboBox(ActionEvent e) {
 		int opcionMarca = comboBox.getSelectedIndex();
 		switch (opcionMarca) {
-			case 0:
-				textFieldPrecio.setText(Tienda.precio0+"");
-				break;
-			case 1:
-				textFieldPrecio.setText(Tienda.precio1+"");
-				break;
-			case 2:
-				textFieldPrecio.setText(Tienda.precio2+"");
-				break;
-			case 3:
-				textFieldPrecio.setText(Tienda.precio3+"");
-				break;
-			case 4:
-				textFieldPrecio.setText(Tienda.precio4+"");
-				break;
+		case 0:
+			textFieldPrecio.setText(Tienda.precio0 + "");
+			break;
+		case 1:
+			textFieldPrecio.setText(Tienda.precio1 + "");
+			break;
+		case 2:
+			textFieldPrecio.setText(Tienda.precio2 + "");
+			break;
+		case 3:
+			textFieldPrecio.setText(Tienda.precio3 + "");
+			break;
+		case 4:
+			textFieldPrecio.setText(Tienda.precio4 + "");
+			break;
 		}
 	}
 	protected void actionPerformedBtnVender(ActionEvent e) {
 		int cantidad;
 		double precio, descuento;
 		double importeCompra, importeDescuento, importePagar;
-		String obsequio = "No corresponde obsequio", premioSorpresa = "No corresponde obsequio";
+		String obsequio = "No corresponde obsequio", premioSorpresa = "No corresponde premio";
 		
 		cantidad = Integer.parseInt( textFieldCantidad.getText());
 		precio = Double.parseDouble( textFieldPrecio.getText());
@@ -174,27 +179,27 @@ public class DialogVender extends JDialog implements ActionListener {
 		return des;
 	}
 	protected void actualizarInventario( int c ) {
-		switch ( comboBox.getSelectedIndex() ) {
-			case 0:
-				Tienda.unidadesVendidas0+=c;
-				Tienda.ventas0++;
-				break;
-			case 1:
-				Tienda.unidadesVendidas1+=c;
-				Tienda.ventas1++;
-				break;
-			case 2:
-				Tienda.unidadesVendidas2+=c;
-				Tienda.ventas2++;
-				break;
-			case 3:
-				Tienda.unidadesVendidas3+=c;
-				Tienda.ventas3++;
-				break;
-			case 4:
-				Tienda.unidadesVendidas4+=c;
-				Tienda.ventas4++;
-				break;
+		switch (comboBox.getSelectedIndex()) {
+		case 0:
+			Tienda.unidadesVendidas0 += c;
+			Tienda.ventas0++;
+			break;
+		case 1:
+			Tienda.unidadesVendidas1 += c;
+			Tienda.ventas1++;
+			break;
+		case 2:
+			Tienda.unidadesVendidas2 += c;
+			Tienda.ventas2++;
+			break;
+		case 3:
+			Tienda.unidadesVendidas3 += c;
+			Tienda.ventas3++;
+			break;
+		case 4:
+			Tienda.unidadesVendidas4 += c;
+			Tienda.ventas4++;
+			break;
 		}
 		Tienda.numeroCliente++;
 	}

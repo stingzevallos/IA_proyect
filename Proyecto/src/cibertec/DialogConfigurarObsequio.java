@@ -13,10 +13,15 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 public class DialogConfigurarObsequio extends JDialog implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private final JPanel contentPanel = new JPanel();
 	private JTextField txtC;
 	private JTextField txtO;
-	private JButton btnCancelar; 
+	private JButton btnCancelar;
+	private JButton btnAceptar;
 	/**
 	 * Launch the application.
 	 */
@@ -78,15 +83,35 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 			btnCancelar.setBounds(404, 36, 97, 25);
 			contentPanel.add(btnCancelar);
 		}
+		{
+			btnAceptar = new JButton("Aceptar");
+			btnAceptar.addActionListener(this);
+			btnAceptar.setBounds(432, 9, 97, 25);
+			contentPanel.add(btnAceptar);
+		}
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == btnCancelar) {
 			actionPerformedBtnCancelar(e);
 		}
+		if (e.getSource() == btnAceptar) {
+			actionPerformedBtnAceptar(e);
+		}
 	}
 	protected void actionPerformedBtnCancelar(ActionEvent e) {
 		dispose();
+	}
+	protected void actionPerformedBtnAceptar(ActionEvent e) {
+		int cantidad;
+		String obsequio;
+		
+		cantidad = Integer.parseInt(txtC.getText());
+		obsequio = txtO.getText();
+		
+		Tienda.cantidadMinimaObsequiable = cantidad;
+		Tienda.obsequio = obsequio;
+		dispose();		
 	}
 
 }

@@ -191,9 +191,11 @@ public class Tienda extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigurarObsequio);
 		
 		mntmConfigurarCantidadOptima = new JMenuItem("Configurar cantidad optima de colchones vendidos");
+		mntmConfigurarCantidadOptima.addActionListener(this);
 		mnConfiguracion.add(mntmConfigurarCantidadOptima);
 		
 		mntmConfigurarPremioSorpresa = new JMenuItem("Configurar premio sorpresa");
+		mntmConfigurarPremioSorpresa.addActionListener(this) ;
 		mnConfiguracion.add(mntmConfigurarPremioSorpresa);
 		
 		mnAyuda = new JMenu("Ayuda");
@@ -210,49 +212,56 @@ public class Tienda extends JFrame implements ActionListener {
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == mntmListarColchones) {
+		if ( e.getSource() == mntmListarColchones ) {
 			actionPerformedMntmListarColchones(e);
 		}
-		if (e.getSource() == mntmVender) {
+		if ( e.getSource() == mntmVender ) {
 			actionPerformedMntmVender(e);
 		}
-		if (e.getSource() == mntmModificarColchon) {
+		if ( e.getSource() == mntmModificarColchon ) {
 			actionPerformedMntmModificarColchon(e);
 		}
-		if (e.getSource() == mntmSalir) {
+		if (e.getSource() == mntmSalir ) {
 			actionPerformedMntmSalir(e);
 		}
-		if (e.getSource() == mntmGenerarReportes ) {
+		if ( e.getSource() == mntmGenerarReportes ) {
 			actionPerformedMntmGenerarReportes(e);
 		}
-		if (e.getSource() == mntmConfigurarDescuentos ) {
+		if ( e.getSource() == mntmConfigurarDescuentos ) {
 			actionPerformedMntmConfigurarDescuentos(e);
 		}
-		if (e.getSource() == mntmConfigurarObsequio ) {
+		if ( e.getSource() == mntmConfigurarObsequio ) {
 			actionPerformedMntmConfigurarObsequio(e);
 		}
-		if (e.getSource() == mntmAcercaDeTienda ) {
+		if ( e.getSource() == mntmAcercaDeTienda ) {
 			actionPerformedMntmAcercaDeTienda(e);
 		}
-		if (e.getSource() == mntmConsultarColchon ) {
+		if ( e.getSource() == mntmConsultarColchon ) {
 			actionPerformedMntmConsultarColchon(e);
 		}
-		
+		if ( e.getSource() == mntmConfigurarCantidadOptima ) {
+			actionPerformedMntmConfigurarCantidaOptima(e);
+		}
+		if( e.getSource() == mntmConfigurarPremioSorpresa ) {
+			actionPerformedMntmConfigurarPremioSorpresa(e);
+		}
 	}
-	
 
+	private void actionPerformedMntmConfigurarPremioSorpresa(ActionEvent e) {
+		DialogConfigurarPremioSorpresa viewConfigurarPremioSorpresa = new DialogConfigurarPremioSorpresa();
+		viewConfigurarPremioSorpresa.setVisible(true);
+	}
 	private void actionPerformedMntmConsultarColchon(ActionEvent e) {
 		DialogConsultarColchon viewConsultarColchon = new DialogConsultarColchon();
 		viewConsultarColchon.setVisible(true);
 	}
-
 	protected void actionPerformedMntmSalir(ActionEvent e) {
 		int salir = JOptionPane.showConfirmDialog(this, "Exit Tienda 1.0 ?", "Confirm Exit", JOptionPane.YES_NO_OPTION);
 		if ( salir == 0 )
 			System.exit(0);
 	}
 	protected void actionPerformedMntmModificarColchon(ActionEvent e) {
-		DialogModificar viewModificarColchon = new DialogModificar();
+		DialogModificarColchon viewModificarColchon = new DialogModificarColchon();
 		viewModificarColchon.setVisible(true);
 	}
 	protected void actionPerformedMntmVender(ActionEvent e) {
@@ -260,7 +269,7 @@ public class Tienda extends JFrame implements ActionListener {
 		viewVender.setVisible(true);
 	}
 	protected void actionPerformedMntmListarColchones(ActionEvent e) {
-		DialogListar viewListar = new DialogListar();
+		DialogListarColchon viewListar = new DialogListarColchon();
 		viewListar.setVisible(true);
 	}
 	protected void actionPerformedMntmGenerarReportes(ActionEvent e) {
@@ -271,14 +280,17 @@ public class Tienda extends JFrame implements ActionListener {
 		DialogConfigurarDescuentos viewConfigurarDescuentos = new DialogConfigurarDescuentos();
 		viewConfigurarDescuentos.setVisible(true);
 	}
-
 	private void actionPerformedMntmConfigurarObsequio(ActionEvent e) {
 		DialogConfigurarObsequio viewConfigurarObsequio = new DialogConfigurarObsequio();
 		viewConfigurarObsequio.setVisible(true);
 	}
-
 	private void actionPerformedMntmAcercaDeTienda(ActionEvent e) {
 		DialogAcercaTienda viewAcercaTienda = new DialogAcercaTienda();
 		viewAcercaTienda.setVisible(true);
 	}
+	private void actionPerformedMntmConfigurarCantidaOptima(ActionEvent e) {
+		DialogConfigurarCantidadOptimaColchones viewConfigurarCantidadOptima = new DialogConfigurarCantidadOptimaColchones();
+		viewConfigurarCantidadOptima.setVisible(true);
+	}
+	
 }

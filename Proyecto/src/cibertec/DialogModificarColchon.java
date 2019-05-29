@@ -11,7 +11,7 @@ import javax.swing.DefaultComboBoxModel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class DialogModificar extends JDialog implements ActionListener {
+public class DialogModificarColchon extends JDialog implements ActionListener {
 	/**
 	 * 
 	 */
@@ -25,7 +25,7 @@ public class DialogModificar extends JDialog implements ActionListener {
 	private JTextField textFieldGarantia;
 	private JTextField textFieldSize;
 	private JTextField textFieldMaterial;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JButton btnCerrar;
 	private JButton btnGuardar;
 
@@ -36,7 +36,7 @@ public class DialogModificar extends JDialog implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					DialogModificar dialog = new DialogModificar();
+					DialogModificarColchon dialog = new DialogModificarColchon();
 					dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 					dialog.setVisible(true);
 				}
@@ -50,7 +50,7 @@ public class DialogModificar extends JDialog implements ActionListener {
 	/**
 	 * Create the dialog.
 	 */
-	public DialogModificar() {
+	public DialogModificarColchon() {
 		setModal(true);
 		setTitle("Modificar colch\u00F3n");
 		setBounds(100, 100, 447, 202);
@@ -100,9 +100,9 @@ public class DialogModificar extends JDialog implements ActionListener {
 		getContentPane().add(textFieldMaterial);
 		textFieldMaterial.setColumns(10);
 		
-		comboBox = new JComboBox();
+		comboBox = new JComboBox<String>();
 		comboBox.addActionListener(this);
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
 		comboBox.setBounds(122, 8, 138, 20);
 		getContentPane().add(comboBox);
 		
@@ -134,35 +134,35 @@ public class DialogModificar extends JDialog implements ActionListener {
 	protected void actionPerformedComboBox(ActionEvent e) {
 		int opcionMarca = comboBox.getSelectedIndex();
 		switch (opcionMarca) {
-			case 0:
-				textFieldPrecio.setText(Tienda.precio0+"");
-				textFieldGarantia.setText(Tienda.garantia0+"");
-				textFieldSize.setText(Tienda.tamaño0);
-				textFieldMaterial.setText(Tienda.material0);
-				break;
-			case 1:
-				textFieldPrecio.setText(Tienda.precio1+"");
-				textFieldGarantia.setText(Tienda.garantia1+"");
-				textFieldSize.setText(Tienda.tamaño1);
-				textFieldMaterial.setText(Tienda.material1);
-				break;
-			case 2:
-				textFieldPrecio.setText(Tienda.precio2+"");
-				textFieldGarantia.setText(Tienda.garantia2+"");
-				textFieldSize.setText(Tienda.tamaño2);
-				textFieldMaterial.setText(Tienda.material2);
-				break;
-			case 3:
-				textFieldPrecio.setText(Tienda.precio3+"");
-				textFieldGarantia.setText(Tienda.garantia3+"");
-				textFieldSize.setText(Tienda.tamaño3);
-				textFieldMaterial.setText(Tienda.material3);
-				break;
-			case 4:
-				textFieldPrecio.setText(Tienda.precio4+"");
-				textFieldGarantia.setText(Tienda.garantia4+"");
-				textFieldSize.setText(Tienda.tamaño4);
-				textFieldMaterial.setText(Tienda.material4);
+		case 0:
+			textFieldPrecio.setText(Tienda.precio0 + "");
+			textFieldGarantia.setText(Tienda.garantia0 + "");
+			textFieldSize.setText(Tienda.tamaño0);
+			textFieldMaterial.setText(Tienda.material0);
+			break;
+		case 1:
+			textFieldPrecio.setText(Tienda.precio1 + "");
+			textFieldGarantia.setText(Tienda.garantia1 + "");
+			textFieldSize.setText(Tienda.tamaño1);
+			textFieldMaterial.setText(Tienda.material1);
+			break;
+		case 2:
+			textFieldPrecio.setText(Tienda.precio2 + "");
+			textFieldGarantia.setText(Tienda.garantia2 + "");
+			textFieldSize.setText(Tienda.tamaño2);
+			textFieldMaterial.setText(Tienda.material2);
+			break;
+		case 3:
+			textFieldPrecio.setText(Tienda.precio3 + "");
+			textFieldGarantia.setText(Tienda.garantia3 + "");
+			textFieldSize.setText(Tienda.tamaño3);
+			textFieldMaterial.setText(Tienda.material3);
+			break;
+		case 4:
+			textFieldPrecio.setText(Tienda.precio4 + "");
+			textFieldGarantia.setText(Tienda.garantia4 + "");
+			textFieldSize.setText(Tienda.tamaño4);
+			textFieldMaterial.setText(Tienda.material4);
 		}
 	}
 	protected void actionPerformedBtnGuardar(ActionEvent e) {
@@ -177,36 +177,36 @@ public class DialogModificar extends JDialog implements ActionListener {
 		material = textFieldMaterial.getText();
 		
 		switch (opcionMarca) {
-			case 0:
-				Tienda.precio0 = precio;
-				Tienda.garantia0 = garantia;
-				Tienda.tamaño0 = size;
-				Tienda.material0 = material;
-				break;
-			case 1:
-				Tienda.precio1 = precio;
-				Tienda.garantia1 = garantia;
-				Tienda.tamaño1 = size;
-				Tienda.material1 = material;
-				break;
-			case 2:
-				Tienda.precio2 = precio;
-				Tienda.garantia2 = garantia;
-				Tienda.tamaño2 = size;
-				Tienda.material2 = material;
-				break;
-			case 3:
-				Tienda.precio3 = precio;
-				Tienda.garantia3 = garantia;
-				Tienda.tamaño3 = size;
-				Tienda.material3 = material;
-				break;
-			case 4:
-				Tienda.precio4 = precio;
-				Tienda.garantia4 = garantia;
-				Tienda.tamaño4 = size;
-				Tienda.material4 = material;
-				break;
+		case 0:
+			Tienda.precio0 = precio;
+			Tienda.garantia0 = garantia;
+			Tienda.tamaño0 = size;
+			Tienda.material0 = material;
+			break;
+		case 1:
+			Tienda.precio1 = precio;
+			Tienda.garantia1 = garantia;
+			Tienda.tamaño1 = size;
+			Tienda.material1 = material;
+			break;
+		case 2:
+			Tienda.precio2 = precio;
+			Tienda.garantia2 = garantia;
+			Tienda.tamaño2 = size;
+			Tienda.material2 = material;
+			break;
+		case 3:
+			Tienda.precio3 = precio;
+			Tienda.garantia3 = garantia;
+			Tienda.tamaño3 = size;
+			Tienda.material3 = material;
+			break;
+		case 4:
+			Tienda.precio4 = precio;
+			Tienda.garantia4 = garantia;
+			Tienda.tamaño4 = size;
+			Tienda.material4 = material;
+			break;
 		}
 		dispose();
  	}
