@@ -295,5 +295,4 @@ public class Tienda extends JFrame implements ActionListener {
 		DialogConfigurarCantidadOptimaColchones viewConfigurarCantidadOptima = new DialogConfigurarCantidadOptimaColchones();
 		viewConfigurarCantidadOptima.setVisible(true);
 	}
-	
 }

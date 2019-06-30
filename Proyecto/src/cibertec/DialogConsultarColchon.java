@@ -132,32 +132,32 @@ public class DialogConsultarColchon extends JDialog implements ActionListener {
 		int opcionColchon = cbomarca.getSelectedIndex();
 		switch (opcionColchon) {
 		case 0:
-			textFieldPrecio.setText(Tienda.precio0 + "");
-			textFieldGarantia.setText(Tienda.garantia0 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio0));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia0));
 			textFieldTamaño.setText(Tienda.tamaño0);
 			textFieldMaterial.setText(Tienda.material0);
 			break;
 		case 1:
-			textFieldPrecio.setText(Tienda.precio1 + "");
-			textFieldGarantia.setText(Tienda.garantia1 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio1));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia1));
 			textFieldTamaño.setText(Tienda.tamaño1);
 			textFieldMaterial.setText(Tienda.material1);
 			break;
 		case 2:
-			textFieldPrecio.setText(Tienda.precio2 + "");
-			textFieldGarantia.setText(Tienda.garantia2 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio2));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia2));
 			textFieldTamaño.setText(Tienda.tamaño2);
 			textFieldMaterial.setText(Tienda.material2);
 			break;
 		case 3:
-			textFieldPrecio.setText(Tienda.precio3 + "");
-			textFieldGarantia.setText(Tienda.garantia3 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio3));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia3));
 			textFieldTamaño.setText(Tienda.tamaño3);
 			textFieldMaterial.setText(Tienda.material3);
 			break;
 		case 4:
-			textFieldPrecio.setText(Tienda.precio4 + "");
-			textFieldGarantia.setText(Tienda.garantia4 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio4));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia4));
 			textFieldTamaño.setText(Tienda.tamaño4);
 			textFieldMaterial.setText(Tienda.material4);
 			break;
