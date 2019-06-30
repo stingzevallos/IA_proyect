@@ -36,34 +36,30 @@ public class DialogAcercaTienda extends JDialog {
 	public DialogAcercaTienda() {
 		setModal(true);
 		setTitle("Acerca de Tienda");
-		setBounds(100, 100, 429, 418);
+		setBounds(100, 100, 298, 376);
 		getContentPane().setLayout(null);
 		
 		JLabel lblTienda = new JLabel(Tienda.NOMBRE_TIENDA);
 		lblTienda.setFont(new Font("Tahoma", Font.BOLD, 23));
-		lblTienda.setBounds(120, 27, 146, 50);
+		lblTienda.setBounds(95, 43, 100, 50);
 		getContentPane().add(lblTienda);
 		
 		JLabel lblAutores = new JLabel("Autores");
 		lblAutores.setFont(new Font("Tahoma", Font.BOLD, 13));
-		lblAutores.setBounds(153, 133, 70, 14);
+		lblAutores.setBounds(41, 117, 70, 14);
 		getContentPane().add(lblAutores);
 		
 		JLabel lblNewLabel = new JLabel(Tienda.desarrollador1);
-		lblNewLabel.setBounds(65, 185, 191, 14);
+		lblNewLabel.setBounds(62, 166, 191, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblMarisabel = new JLabel(Tienda.desarrollador2);
-		lblMarisabel.setBounds(65, 210, 191, 20);
+		lblMarisabel.setBounds(62, 191, 191, 20);
 		getContentPane().add(lblMarisabel);
 		
 		JLabel lblNewLabel_1 = new JLabel(Tienda.desarrollador3);
-		lblNewLabel_1.setBounds(65, 244, 191, 14);
+		lblNewLabel_1.setBounds(62, 222, 191, 14);
 		getContentPane().add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_2 = new JLabel(Tienda.desarrollador4);
-		lblNewLabel_2.setBounds(65, 269, 191, 14);
-		getContentPane().add(lblNewLabel_2);
 
 	}
 

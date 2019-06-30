@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 public class DialogConfigurarDescuentos extends JDialog implements ActionListener {
@@ -131,14 +132,22 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 	}
 	protected void actionPerformedBtnAceptar(ActionEvent arg0) {
 		double p1,p2,p3,p4;
-		p1 = Double.parseDouble(txtP1.getText());
-		p2 = Double.parseDouble(txtP2.getText());
-		p3 = Double.parseDouble(txtP3.getText());
-		p4 = Double.parseDouble(txtP4.getText());
-		Tienda.porcentaje1 = p1;
-		Tienda.porcentaje2 = p2;
-		Tienda.porcentaje3 = p3;
-		Tienda.porcentaje4 = p4;
-		dispose();
+		
+		try {
+			p1 = Double.parseDouble(txtP1.getText());
+			p2 = Double.parseDouble(txtP2.getText());
+			p3 = Double.parseDouble(txtP3.getText());
+			p4 = Double.parseDouble(txtP4.getText());
+			Tienda.porcentaje1 = p1;
+			Tienda.porcentaje2 = p2;
+			Tienda.porcentaje3 = p3;
+			Tienda.porcentaje4 = p4;
+			dispose();
+		}
+		catch ( NumberFormatException exception ) {
+			JOptionPane.showMessageDialog( null, "Ingrese solo valores numericos en todos los campos", "ERROR!", JOptionPane.WARNING_MESSAGE);
+		}
+		
 	}
+	
 }

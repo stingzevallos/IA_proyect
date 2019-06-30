@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -14,6 +15,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class DialogVender extends JDialog implements ActionListener {
+	
+	private double importeCompra, importeDescuento, importePagar;
 	/**
 	 * 
 	 */
@@ -115,53 +118,56 @@ public class DialogVender extends JDialog implements ActionListener {
 		int opcionMarca = comboBox.getSelectedIndex();
 		switch (opcionMarca) {
 		case 0:
-			textFieldPrecio.setText(Tienda.precio0 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio0));
 			break;
 		case 1:
-			textFieldPrecio.setText(Tienda.precio1 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio1));
 			break;
 		case 2:
-			textFieldPrecio.setText(Tienda.precio2 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio2));
 			break;
 		case 3:
-			textFieldPrecio.setText(Tienda.precio3 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio3));
 			break;
 		case 4:
-			textFieldPrecio.setText(Tienda.precio4 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio4));
 			break;
 		}
 	}
 	protected void actionPerformedBtnVender(ActionEvent e) {
 		int cantidad;
 		double precio, descuento;
-		double importeCompra, importeDescuento, importePagar;
 		String obsequio = "No corresponde obsequio", premioSorpresa = "No corresponde premio";
 		
-		cantidad = Integer.parseInt( textFieldCantidad.getText());
-		precio = Double.parseDouble( textFieldPrecio.getText());
-		
-		actualizarInventario(cantidad);		// Actualiza el n° de clientes, unidades vendidas, etc
-		descuento = generarDescuento(cantidad);		// Generamos el descuento en base a la cantidad
-		
-		importeCompra = cantidad * precio;
-		importeDescuento = importeCompra * descuento;
-		importePagar = importeCompra - importeDescuento;
-		
-		if ( cantidad >= Tienda.cantidadMinimaObsequiable )
-			obsequio = Tienda.obsequio;
-		if ( Tienda.numeroCliente == Tienda.numeroClienteSorpresa ) 
-			premioSorpresa = Tienda.premioSorpresa;
-		
-		textArea.setText("BOLETA DE VENTA\n");
-		textArea.append("Marca\t\t\t: " + comboBox.getSelectedItem().toString() + "\n"
-				+ "Precio Unitario\t\t: S/. " + precio + "\n"
-				+ "Cantidad de unidades\t: " + cantidad + "\n"
-				+ "Importe de Compra\t: S/." + importeCompra + "\n"
-				+ "Importe de descuento\t: S/." + importeDescuento + "\n"
-				+ "Importe a pagar\t\t: S/." + importePagar + "\n"
-				+ "Obsequio\t\t: " + obsequio + "\n"
-				+ "Premio Sorpresa\t\t: " + premioSorpresa );
+		try {
+			cantidad = Integer.parseInt( textFieldCantidad.getText());
+			precio = Double.parseDouble( textFieldPrecio.getText());
+			
+			actualizarInventario(cantidad);		// Actualiza el n° de clientes, unidades vendidas, etc
+			descuento = generarDescuento(cantidad);		// Generamos el descuento en base a la cantidad
+			
+			generarImportes( cantidad, precio, descuento);		// Generamos los importes
+			
+			if ( cantidad >= Tienda.cantidadMinimaObsequiable )
+				obsequio = Tienda.obsequio;
+			if ( Tienda.numeroCliente == Tienda.numeroClienteSorpresa ) 
+				premioSorpresa = Tienda.premioSorpresa;
+			
+			textArea.setText("BOLETA DE VENTA\n");
+			imprimir("Marca\t\t\t: " + comboBox.getSelectedItem().toString());
+			imprimir("Precio Unitario\t\t: S/. " + precio);
+			imprimir("Cantidad de unidades\t: " + cantidad);
+			imprimir("Importe de Compra\t: S/." + importeCompra);
+			imprimir("Importe de descuento\t: S/." + importeDescuento);
+			imprimir("Importe a pagar\t\t: S/." + importePagar);
+			imprimir("Obsequio\t\t: " + obsequio);
+			imprimir("Premio Sorpresa\t\t: " + premioSorpresa);
+		}
+		catch ( NumberFormatException exception ) {
+			JOptionPane.showMessageDialog( null, "Ingrese solo valores numericos en \"Cantidad\".", "ERROR!", JOptionPane.WARNING_MESSAGE);
+		}
 	}
+	
 	protected void actionPerformedBtnCerrar(ActionEvent e) {
 		dispose();
 	}
@@ -177,6 +183,12 @@ public class DialogVender extends JDialog implements ActionListener {
 		else
 			des = Tienda.porcentaje1/100;
 		return des;
+	}
+	
+	protected void generarImportes( int cantidad, double precio, double descuento ) {
+		importeCompra = cantidad * precio;
+		importeDescuento = importeCompra * descuento;
+		importePagar = importeCompra - importeDescuento;
 	}
 	protected void actualizarInventario( int c ) {
 		switch (comboBox.getSelectedIndex()) {
@@ -202,6 +214,10 @@ public class DialogVender extends JDialog implements ActionListener {
 			break;
 		}
 		Tienda.numeroCliente++;
+	}
+	
+	protected void imprimir( String cad ) {
+		textArea.append( cad + "\n");
 	}
 	
 }

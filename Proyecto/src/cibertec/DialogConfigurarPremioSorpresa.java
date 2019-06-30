@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -40,44 +41,51 @@ public class DialogConfigurarPremioSorpresa extends JDialog {
 	public DialogConfigurarPremioSorpresa() {
 		setModal(true);
 		setTitle("Configurar premio sorpresa ");
-		setBounds(100, 100, 374, 149);
+		setBounds(100, 100, 428, 124);
 		getContentPane().setLayout(null);
 		
 		JLabel lblNumeroDeCliente = new JLabel("Numero de cliente");
-		lblNumeroDeCliente.setBounds(23, 30, 123, 14);
+		lblNumeroDeCliente.setBounds(10, 11, 110, 14);
 		getContentPane().add(lblNumeroDeCliente);
 		
 		JLabel lblNewLabel = new JLabel("Premio sorpresa");
-		lblNewLabel.setBounds(23, 67, 96, 14);
+		lblNewLabel.setBounds(10, 36, 110, 14);
 		getContentPane().add(lblNewLabel);
 		
 		textFieldCliente = new JTextField();
 		textFieldCliente.setText(Tienda.cantidadMinimaObsequiable+"");
-		textFieldCliente.setBounds(123, 27, 86, 20);
+		textFieldCliente.setBounds(130, 8, 86, 20);
 		textFieldCliente.setText(Tienda.cantidadMinimaObsequiable+"");
 		getContentPane().add(textFieldCliente);
 		textFieldCliente.setColumns(10);
 		
 		textFieldPremio = new JTextField();
 		textFieldPremio.setText(Tienda.obsequio);
-		textFieldPremio.setBounds(123, 64, 86, 20);
+		textFieldPremio.setBounds(130, 33, 86, 20);
 		getContentPane().add(textFieldPremio);
 		textFieldPremio.setColumns(10);
 		
-		JButton btnProcesar = new JButton("Procesar");
-		btnProcesar.addActionListener(new ActionListener() {
+		JButton btnAceptar = new JButton("Aceptar");
+		btnAceptar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int cMinima;
 				String nuevoObsequio;
-				cMinima=Integer.parseInt(textFieldCliente.getText());
-				nuevoObsequio=textFieldPremio.getText();
-				Tienda.cantidadMinimaObsequiable=cMinima;
-				Tienda.obsequio=nuevoObsequio;
-				dispose();				
+				
+				try {
+					cMinima=Integer.parseInt(textFieldCliente.getText());
+					nuevoObsequio=textFieldPremio.getText();
+					Tienda.cantidadMinimaObsequiable=cMinima;
+					Tienda.obsequio=nuevoObsequio;
+
+					dispose();	
+				}
+				catch ( NumberFormatException exception ) {
+					JOptionPane.showMessageDialog( null, "Ingrese solo valores numericos en \"Numero de Clientes\".", "ERROR!", JOptionPane.WARNING_MESSAGE);
+				}
 			}
 					});
-		btnProcesar.setBounds(239, 26, 89, 23);
-		getContentPane().add(btnProcesar);
+		btnAceptar.setBounds(313, 7, 89, 23);
+		getContentPane().add(btnAceptar);
 		
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.addActionListener(new ActionListener() {
@@ -85,9 +93,9 @@ public class DialogConfigurarPremioSorpresa extends JDialog {
 				dispose();
 			}
 		});
-		btnCancelar.setBounds(239, 63, 89, 23);
+		btnCancelar.setBounds(313, 32, 89, 23);
 		getContentPane().add(btnCancelar);
 
 	}
-
+	
 }

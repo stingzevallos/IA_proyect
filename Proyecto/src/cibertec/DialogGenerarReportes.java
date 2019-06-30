@@ -106,34 +106,22 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 		importeTotal = importe0 + importe1 + importe2 + importe3 + importe4;
 		ventasTotal = Tienda.ventas0 + Tienda.ventas1 + Tienda.ventas2 + Tienda.ventas3 + Tienda.ventas4;
 		
-		textArea.setText("Ventas por colchon\n\n"
-				+ "Marca \t\t\t\t\t: " + Tienda.marca0 + "\n" 
-				+ "Cantidad de Ventas \t\t\t: " + Tienda.ventas0 + "\n"
-				+ "Cantidad total de unidades vendidas \t: " + Tienda.unidadesVendidas0 + "\n"
-				+ "Importe total acumulado \t\t: " + importe0 + "\n"
-				+ "\n"
-				+ "Marca \t\t\t\t\t: " + Tienda.marca1 + "\n" 
-				+ "Cantidad de Ventas \t\t\t: " + Tienda.ventas1 + "\n"
-				+ "Cantidad total de unidades vendidas \t: " + Tienda.unidadesVendidas1 + "\n"
-				+ "Importe total acumulado \t\t: " + importe1 + "\n"
-				+ "\n"
-				+ "Marca \t\t\t\t\t: " + Tienda.marca2 + "\n" 
-				+ "Cantidad de Ventas \t\t\t: " + Tienda.ventas2 + "\n"
-				+ "Cantidad total de unidades vendidas \t: " + Tienda.unidadesVendidas2 + "\n"
-				+ "Importe total acumulado \t\t: " + importe2 + "\n"
-				+ "\n"
-				+ "Marca \t\t\t\t\t: " + Tienda.marca3 + "\n" 
-				+ "Cantidad de Ventas \t\t\t: " + Tienda.ventas3 + "\n"
-				+ "Cantidad total de unidades vendidas \t: " + Tienda.unidadesVendidas3 + "\n"
-				+ "Importe total acumulado \t\t: " + importe3 + "\n"
-				+ "\n"
-				+ "Marca \t\t\t\t\t: " + Tienda.marca4 + "\n" 
-				+ "Cantidad de Ventas \t\t\t: " + Tienda.ventas4 + "\n"
-				+ "Cantidad total de unidades vendidas \t: " + Tienda.unidadesVendidas4 + "\n"
-				+ "Importe total acumulado \t\t: " + importe4 + "\n"
-				+ "\n"
-				+ "Importe Total general acumulado \t: " + importeTotal +"\n"
+		textArea.setText("Ventas por colchon\n\n");
+		imprimirColchon( Tienda.marca0, Tienda.ventas0, Tienda.unidadesVendidas0, importe0 );
+		imprimirColchon( Tienda.marca1, Tienda.ventas1, Tienda.unidadesVendidas1, importe1 );
+		imprimirColchon( Tienda.marca2, Tienda.ventas2, Tienda.unidadesVendidas2, importe2 );
+		imprimirColchon( Tienda.marca3, Tienda.ventas3, Tienda.unidadesVendidas3, importe3 );
+		imprimirColchon( Tienda.marca4, Tienda.ventas4, Tienda.unidadesVendidas4, importe4 );
+		textArea.append("Importe Total general acumulado \t: " + importeTotal +"\n"
 				+ "Cantidad Total general de ventas \t: " + ventasTotal);
+	}
+	
+	protected void imprimirColchon( String marca, int ventas, int unidadesVendidas, double importe ) {
+		textArea.append( "Marca \t\t\t\t\t: " + marca + "\n" 
+				+ "Cantidad de Ventas \t\t\t: " + ventas + "\n"
+				+ "Cantidad total de unidades vendidas \t: " + unidadesVendidas + "\n"
+				+ "Importe total acumulado \t\t: " + importe + "\n"
+				+ "\n" );
 	}
 	protected void mostrarMarcasVentaOptima() {
 		String colchonesOptimos = "";
@@ -195,6 +183,10 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 						+ "Precio promedio\t: S/." + promedio + "\n"
 						+ "Precio menor\t: S/." + menor + "\n"
 						+ "Precio mayor\t: S/." + mayor );
+	}
+	
+	protected void imprimir( String cad ) {
+		textArea.append( cad + "\n");
 	}
 	
 }
