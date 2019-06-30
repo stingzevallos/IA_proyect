@@ -132,36 +132,28 @@ public class DialogConsultarColchon extends JDialog implements ActionListener {
 		int opcionColchon = cbomarca.getSelectedIndex();
 		switch (opcionColchon) {
 		case 0:
-			textFieldPrecio.setText(String.valueOf(Tienda.precio0));
-			textFieldGarantia.setText(String.valueOf(Tienda.garantia0));
-			textFieldTamaño.setText(Tienda.tamaño0);
-			textFieldMaterial.setText(Tienda.material0);
+			mostrarDatosColchon( Tienda.precio0, Tienda.garantia0, Tienda.tamaño0, Tienda.material0);
 			break;
 		case 1:
-			textFieldPrecio.setText(String.valueOf(Tienda.precio1));
-			textFieldGarantia.setText(String.valueOf(Tienda.garantia1));
-			textFieldTamaño.setText(Tienda.tamaño1);
-			textFieldMaterial.setText(Tienda.material1);
+			mostrarDatosColchon( Tienda.precio1, Tienda.garantia1, Tienda.tamaño1, Tienda.material1);
 			break;
 		case 2:
-			textFieldPrecio.setText(String.valueOf(Tienda.precio2));
-			textFieldGarantia.setText(String.valueOf(Tienda.garantia2));
-			textFieldTamaño.setText(Tienda.tamaño2);
-			textFieldMaterial.setText(Tienda.material2);
+			mostrarDatosColchon( Tienda.precio2, Tienda.garantia2, Tienda.tamaño2, Tienda.material2);
 			break;
 		case 3:
-			textFieldPrecio.setText(String.valueOf(Tienda.precio3));
-			textFieldGarantia.setText(String.valueOf(Tienda.garantia3));
-			textFieldTamaño.setText(Tienda.tamaño3);
-			textFieldMaterial.setText(Tienda.material3);
+			mostrarDatosColchon( Tienda.precio3, Tienda.garantia3, Tienda.tamaño3, Tienda.material3);
 			break;
 		case 4:
-			textFieldPrecio.setText(String.valueOf(Tienda.precio4));
-			textFieldGarantia.setText(String.valueOf(Tienda.garantia4));
-			textFieldTamaño.setText(Tienda.tamaño4);
-			textFieldMaterial.setText(Tienda.material4);
+			mostrarDatosColchon( Tienda.precio4, Tienda.garantia4, Tienda.tamaño4, Tienda.material4);
 			break;
 		}
+	}
+	
+	protected void mostrarDatosColchon( double precio, int garantia, String tamaño, String material ) {
+		textFieldPrecio.setText(String.valueOf(precio));
+		textFieldGarantia.setText(String.valueOf(garantia));
+		textFieldTamaño.setText(tamaño);
+		textFieldMaterial.setText(material);
 	}
 	
 }

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
@@ -17,9 +18,9 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private final JPanel contentPanel = new JPanel();
-	private JTextField txtC;
-	private JTextField txtO;
+	private final JPanel contentPanel = 	new JPanel();
+	private JTextField txtCantidad;
+	private JTextField txtObsequio;
 	private JButton btnCancelar;
 	private JButton btnAceptar;
 	/**
@@ -57,20 +58,20 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 		}
 		{
 			JLabel lblNewLabel_1 = new JLabel("Obsequio");
-			lblNewLabel_1.setBounds(10, 40, 56, 16);
+			lblNewLabel_1.setBounds(12, 40, 56, 16);
 			contentPanel.add(lblNewLabel_1);
 		}
 		{
-			txtC = new JTextField();
-			txtC.setBounds(242, 10, 116, 22);
-			contentPanel.add(txtC);
-			txtC.setColumns(10);
+			txtCantidad = new JTextField();
+			txtCantidad.setBounds(242, 10, 116, 22);
+			contentPanel.add(txtCantidad);
+			txtCantidad.setColumns(10);
 		}
 		{
-			txtO = new JTextField();
-			txtO.setBounds(242, 37, 116, 22);
-			contentPanel.add(txtO);
-			txtO.setColumns(10);
+			txtObsequio = new JTextField();
+			txtObsequio.setBounds(242, 37, 116, 22);
+			contentPanel.add(txtObsequio);
+			txtObsequio.setColumns(10);
 		}
 		{
 			btnCancelar = new JButton("Cancelar");
@@ -101,12 +102,17 @@ public class DialogConfigurarObsequio extends JDialog implements ActionListener 
 		int cantidad;
 		String obsequio;
 		
-		cantidad = Integer.parseInt(txtC.getText());
-		obsequio = txtO.getText();
-		
-		Tienda.cantidadMinimaObsequiable = cantidad;
-		Tienda.obsequio = obsequio;
-		dispose();		
+		try {
+			cantidad = Integer.parseInt(txtCantidad.getText());
+			obsequio = txtObsequio.getText();
+			
+			Tienda.cantidadMinimaObsequiable = cantidad;
+			Tienda.obsequio = obsequio;
+			dispose();
+		}
+		catch ( NumberFormatException exception ) {
+			JOptionPane.showMessageDialog( null, "Ingrese solo valores numericos en \"Cantidad minima de colchones adquiridos\".", "ERROR!", JOptionPane.WARNING_MESSAGE);
+		}
 	}
 
 }

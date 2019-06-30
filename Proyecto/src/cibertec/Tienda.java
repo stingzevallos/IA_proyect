@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.JMenuBar;
+import javax.swing.JMenuBar; 
 import javax.swing.JMenu;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -34,8 +34,6 @@ public class Tienda extends JFrame implements ActionListener {
 	public static String desarrollador1 = "Sting Luis Zevallos Baca";
 	public static String desarrollador2 = "Merisabel Ruelas Quenaya";
 	public static String desarrollador3 = "Loida Elizabeth Cubas Romero";
-	public static String desarrollador4 = "Leidy Danitza Larico Alvarez";
-			
 	
 	// Datos mínimos del primer colchón
 	public static String marca0 = "Suavestar";

@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JDialog;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
@@ -77,13 +78,13 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		getContentPane().add(lblMaterial);
 		
 		textFieldPrecio = new JTextField();
-		textFieldPrecio.setText(Tienda.precio0+"");
+		textFieldPrecio.setText(String.valueOf(Tienda.precio0));
 		textFieldPrecio.setBounds(122, 33, 138, 20);
 		getContentPane().add(textFieldPrecio);
 		textFieldPrecio.setColumns(10);
 		
 		textFieldGarantia = new JTextField();
-		textFieldGarantia.setText(Tienda.garantia0+"");
+		textFieldGarantia.setText(String.valueOf(Tienda.garantia0));
 		textFieldGarantia.setBounds(122, 58, 138, 20);
 		getContentPane().add(textFieldGarantia);
 		textFieldGarantia.setColumns(10);
@@ -102,7 +103,8 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		
 		comboBox = new JComboBox<String>();
 		comboBox.addActionListener(this);
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4}));
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] 
+				{Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4} ));
 		comboBox.setBounds(122, 8, 138, 20);
 		getContentPane().add(comboBox);
 		
@@ -135,32 +137,32 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		int opcionMarca = comboBox.getSelectedIndex();
 		switch (opcionMarca) {
 		case 0:
-			textFieldPrecio.setText(Tienda.precio0 + "");
-			textFieldGarantia.setText(Tienda.garantia0 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio0));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia0));
 			textFieldSize.setText(Tienda.tamaño0);
 			textFieldMaterial.setText(Tienda.material0);
 			break;
 		case 1:
-			textFieldPrecio.setText(Tienda.precio1 + "");
-			textFieldGarantia.setText(Tienda.garantia1 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio1));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia1));
 			textFieldSize.setText(Tienda.tamaño1);
 			textFieldMaterial.setText(Tienda.material1);
 			break;
 		case 2:
-			textFieldPrecio.setText(Tienda.precio2 + "");
-			textFieldGarantia.setText(Tienda.garantia2 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio2));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia2));
 			textFieldSize.setText(Tienda.tamaño2);
 			textFieldMaterial.setText(Tienda.material2);
 			break;
 		case 3:
-			textFieldPrecio.setText(Tienda.precio3 + "");
-			textFieldGarantia.setText(Tienda.garantia3 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio3));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia3));
 			textFieldSize.setText(Tienda.tamaño3);
 			textFieldMaterial.setText(Tienda.material3);
 			break;
 		case 4:
-			textFieldPrecio.setText(Tienda.precio4 + "");
-			textFieldGarantia.setText(Tienda.garantia4 + "");
+			textFieldPrecio.setText(String.valueOf(Tienda.precio4));
+			textFieldGarantia.setText(String.valueOf(Tienda.garantia4));
 			textFieldSize.setText(Tienda.tamaño4);
 			textFieldMaterial.setText(Tienda.material4);
 		}
@@ -170,44 +172,50 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		double precio;
 		String size, material;
 		
-		opcionMarca = comboBox.getSelectedIndex();
-		precio = Double.parseDouble( textFieldPrecio.getText());
-		garantia = Integer.parseInt( textFieldGarantia.getText());
-		size = textFieldSize.getText();
-		material = textFieldMaterial.getText();
-		
-		switch (opcionMarca) {
-		case 0:
-			Tienda.precio0 = precio;
-			Tienda.garantia0 = garantia;
-			Tienda.tamaño0 = size;
-			Tienda.material0 = material;
-			break;
-		case 1:
-			Tienda.precio1 = precio;
-			Tienda.garantia1 = garantia;
-			Tienda.tamaño1 = size;
-			Tienda.material1 = material;
-			break;
-		case 2:
-			Tienda.precio2 = precio;
-			Tienda.garantia2 = garantia;
-			Tienda.tamaño2 = size;
-			Tienda.material2 = material;
-			break;
-		case 3:
-			Tienda.precio3 = precio;
-			Tienda.garantia3 = garantia;
-			Tienda.tamaño3 = size;
-			Tienda.material3 = material;
-			break;
-		case 4:
-			Tienda.precio4 = precio;
-			Tienda.garantia4 = garantia;
-			Tienda.tamaño4 = size;
-			Tienda.material4 = material;
-			break;
+		try {
+			opcionMarca = comboBox.getSelectedIndex();
+			precio = Double.parseDouble( textFieldPrecio.getText());
+			garantia = Integer.parseInt( textFieldGarantia.getText());
+			size = textFieldSize.getText();
+			material = textFieldMaterial.getText();
+			
+			switch (opcionMarca) {
+			case 0:
+				Tienda.precio0 = precio;
+				Tienda.garantia0 = garantia;
+				Tienda.tamaño0 = size;
+				Tienda.material0 = material;
+				break;
+			case 1:
+				Tienda.precio1 = precio;
+				Tienda.garantia1 = garantia;
+				Tienda.tamaño1 = size;
+				Tienda.material1 = material;
+				break;
+			case 2:
+				Tienda.precio2 = precio;
+				Tienda.garantia2 = garantia;
+				Tienda.tamaño2 = size;
+				Tienda.material2 = material;
+				break;
+			case 3:
+				Tienda.precio3 = precio;
+				Tienda.garantia3 = garantia;
+				Tienda.tamaño3 = size;
+				Tienda.material3 = material;
+				break;
+			case 4:
+				Tienda.precio4 = precio;
+				Tienda.garantia4 = garantia;
+				Tienda.tamaño4 = size;
+				Tienda.material4 = material;
+				break;
+			}
+			dispose();
 		}
-		dispose();
+		catch ( NumberFormatException exception ) {
+			JOptionPane.showMessageDialog( null, "Ingrese valores numericos en \"Precio y/o Garantia\".", "ERROR!", JOptionPane.WARNING_MESSAGE);
+		}		
  	}
+	
 }
