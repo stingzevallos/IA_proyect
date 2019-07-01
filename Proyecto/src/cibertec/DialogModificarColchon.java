@@ -138,7 +138,7 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnCerrar.setIcon(img2);
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(427, 34, 124, 29);
+		btnCerrar.setBounds(427, 11, 124, 29);
 		getContentPane().add(btnCerrar);
 		
 		Image iconoImagen = new ImageIcon("imagenes/save.png").getImage();
@@ -147,7 +147,7 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnGuardar.setIcon(icono);
 		btnGuardar.addActionListener(this);
-		btnGuardar.setBounds(427, 75, 124, 29);
+		btnGuardar.setBounds(427, 43, 124, 29);
 		getContentPane().add(btnGuardar);
 
 	}

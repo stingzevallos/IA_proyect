@@ -65,29 +65,29 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		
 		lblA = new JLabel("1 a 5 unidades");
 		lblA.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblA.setBounds(12, 13, 103, 21);
+		lblA.setBounds(12, 13, 172, 21);
 		getContentPane().add(lblA);
 		
 		lblA_1 = new JLabel("6 a 10 unidades");
 		lblA_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblA_1.setBounds(12, 47, 103, 21);
+		lblA_1.setBounds(12, 45, 172, 21);
 		getContentPane().add(lblA_1);
 		
 		lblA_2 = new JLabel("11 a 15 unidades");
 		lblA_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblA_2.setBounds(12, 81, 103, 21);
+		lblA_2.setBounds(12, 83, 172, 21);
 		getContentPane().add(lblA_2);
 		
 		lblMsDe = new JLabel("M\u00E1s de 15 unidades");
 		lblMsDe.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblMsDe.setBounds(12, 115, 114, 21);
+		lblMsDe.setBounds(12, 116, 172, 21);
 		getContentPane().add(lblMsDe);
 		
 		txtP1 = new JTextField();
 		txtP1.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtP1.setBackground(new Color(250, 250, 210));
 		txtP1.setText(String.valueOf(Tienda.porcentaje1));
-		txtP1.setBounds(141, 11, 116, 24);
+		txtP1.setBounds(194, 10, 116, 24);
 		getContentPane().add(txtP1);
 		txtP1.setColumns(10);
 		
@@ -95,7 +95,7 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		txtP2.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtP2.setBackground(new Color(250, 250, 210));
 		txtP2.setText(String.valueOf(Tienda.porcentaje2));
-		txtP2.setBounds(141, 46, 116, 24);
+		txtP2.setBounds(194, 45, 116, 24);
 		getContentPane().add(txtP2);
 		txtP2.setColumns(10);
 		
@@ -103,7 +103,7 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		txtP3.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtP3.setBackground(new Color(250, 250, 210));
 		txtP3.setText(String.valueOf(Tienda.porcentaje3));
-		txtP3.setBounds(141, 80, 116, 24);
+		txtP3.setBounds(194, 79, 116, 24);
 		getContentPane().add(txtP3);
 		txtP3.setColumns(10);
 		
@@ -111,28 +111,28 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		txtP4.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		txtP4.setBackground(new Color(250, 250, 210));
 		txtP4.setText(String.valueOf(Tienda.porcentaje4));
-		txtP4.setBounds(141, 114, 116, 24);
+		txtP4.setBounds(194, 113, 116, 24);
 		getContentPane().add(txtP4);
 		txtP4.setColumns(10);
 		
 		label = new JLabel("%");
 		label.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label.setBounds(269, 13, 56, 21);
+		label.setBounds(322, 12, 56, 21);
 		getContentPane().add(label);
 		
 		label_1 = new JLabel("%");
 		label_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_1.setBounds(269, 47, 56, 21);
+		label_1.setBounds(322, 46, 56, 21);
 		getContentPane().add(label_1);
 		
 		label_2 = new JLabel("%");
 		label_2.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_2.setBounds(269, 80, 56, 22);
+		label_2.setBounds(322, 79, 56, 22);
 		getContentPane().add(label_2);
 		
 		label_3 = new JLabel("%");
 		label_3.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		label_3.setBounds(269, 115, 56, 21);
+		label_3.setBounds(322, 114, 56, 21);
 		getContentPane().add(label_3);
 		
 		Image iconoImagen = new ImageIcon("imagenes/check.png").getImage();
@@ -182,7 +182,6 @@ public class DialogConfigurarDescuentos extends JDialog implements ActionListene
 		catch ( NumberFormatException exception ) {
 			JOptionPane.showMessageDialog( null, "Ingrese solo valores numericos en todos los campos", "ERROR!", JOptionPane.WARNING_MESSAGE);
 		}
-		
 	}
 	
 }
