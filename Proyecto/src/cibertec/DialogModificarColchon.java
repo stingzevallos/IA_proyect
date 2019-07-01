@@ -9,8 +9,14 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 public class DialogModificarColchon extends JDialog implements ActionListener {
 	/**
@@ -52,70 +58,96 @@ public class DialogModificarColchon extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogModificarColchon() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/dream.png"));
+		getContentPane().setBackground(new Color(224, 255, 255));
 		setModal(true);
 		setTitle("Modificar colch\u00F3n");
-		setBounds(100, 100, 447, 202);
+		setBounds(100, 100, 581, 308);
 		getContentPane().setLayout(null);
 		
 		lblMarca = new JLabel("Marca");
-		lblMarca.setBounds(10, 11, 102, 14);
+		lblMarca.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblMarca.setBackground(Color.WHITE);
+		lblMarca.setBounds(10, 11, 102, 20);
 		getContentPane().add(lblMarca);
 		
 		lblPrecios = new JLabel("Precio (S/.)");
-		lblPrecios.setBounds(10, 36, 102, 14);
+		lblPrecios.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblPrecios.setBounds(10, 43, 102, 20);
 		getContentPane().add(lblPrecios);
 		
 		lblGarantaaos = new JLabel("Garant\u00EDa (a\u00F1os)");
-		lblGarantaaos.setBounds(10, 61, 102, 14);
+		lblGarantaaos.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblGarantaaos.setBounds(10, 76, 102, 18);
 		getContentPane().add(lblGarantaaos);
 		
 		lblTamao = new JLabel("Tama\u00F1o");
-		lblTamao.setBounds(10, 86, 102, 14);
+		lblTamao.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTamao.setBounds(10, 107, 102, 20);
 		getContentPane().add(lblTamao);
 		
 		lblMaterial = new JLabel("Material");
-		lblMaterial.setBounds(10, 111, 102, 14);
+		lblMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblMaterial.setBounds(10, 140, 102, 20);
 		getContentPane().add(lblMaterial);
 		
 		textFieldPrecio = new JTextField();
+		textFieldPrecio.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textFieldPrecio.setBackground(new Color(255, 255, 204));
 		textFieldPrecio.setText(String.valueOf(Tienda.precio0));
-		textFieldPrecio.setBounds(122, 33, 138, 20);
+		textFieldPrecio.setBounds(124, 42, 255, 23);
 		getContentPane().add(textFieldPrecio);
 		textFieldPrecio.setColumns(10);
 		
 		textFieldGarantia = new JTextField();
+		textFieldGarantia.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textFieldGarantia.setBackground(new Color(255, 255, 204));
 		textFieldGarantia.setText(String.valueOf(Tienda.garantia0));
-		textFieldGarantia.setBounds(122, 58, 138, 20);
+		textFieldGarantia.setBounds(124, 73, 255, 25);
 		getContentPane().add(textFieldGarantia);
 		textFieldGarantia.setColumns(10);
 		
 		textFieldSize = new JTextField();
+		textFieldSize.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textFieldSize.setBackground(new Color(255, 255, 204));
 		textFieldSize.setText(Tienda.tamaño0);
-		textFieldSize.setBounds(122, 83, 138, 20);
+		textFieldSize.setBounds(124, 106, 255, 23);
 		getContentPane().add(textFieldSize);
 		textFieldSize.setColumns(10);
 		
 		textFieldMaterial = new JTextField();
+		textFieldMaterial.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		textFieldMaterial.setBackground(new Color(255, 255, 204));
 		textFieldMaterial.setText(Tienda.material0);
-		textFieldMaterial.setBounds(122, 108, 138, 20);
+		textFieldMaterial.setBounds(124, 139, 255, 23);
 		getContentPane().add(textFieldMaterial);
 		textFieldMaterial.setColumns(10);
 		
 		comboBox = new JComboBox<String>();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		comboBox.setBackground(new Color(255, 255, 204));
 		comboBox.addActionListener(this);
 		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] 
 				{Tienda.marca0, Tienda.marca1, Tienda.marca2, Tienda.marca3, Tienda.marca4} ));
-		comboBox.setBounds(122, 8, 138, 20);
+		comboBox.setBounds(124, 10, 255, 23);
 		getContentPane().add(comboBox);
 		
+		Image img= new ImageIcon("imagenes/cerrar.png").getImage();
+		ImageIcon img2=new ImageIcon(img.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCerrar.setIcon(img2);
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(332, 7, 89, 23);
+		btnCerrar.setBounds(427, 34, 124, 29);
 		getContentPane().add(btnCerrar);
 		
+		Image iconoImagen = new ImageIcon("imagenes/save.png").getImage();
+		ImageIcon icono = new ImageIcon(iconoImagen.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
 		btnGuardar = new JButton("Guardar");
+		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnGuardar.setIcon(icono);
 		btnGuardar.addActionListener(this);
-		btnGuardar.setBounds(332, 32, 89, 23);
+		btnGuardar.setBounds(427, 75, 124, 29);
 		getContentPane().add(btnGuardar);
 
 	}

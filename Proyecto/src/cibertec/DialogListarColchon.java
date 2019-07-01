@@ -2,6 +2,7 @@ package cibertec;
 
 import java.awt.FlowLayout;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
@@ -9,6 +10,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Toolkit;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Color;
 
 public class DialogListarColchon extends JDialog implements ActionListener {
 	/**
@@ -38,9 +43,11 @@ public class DialogListarColchon extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogListarColchon() {
+		getContentPane().setBackground(new Color(0, 255, 255));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/dream.png"));
 		setModal(true);
 		setTitle("Listado de colchones");
-		setBounds(100, 100, 482, 323);
+		setBounds(100, 100, 482, 333);
 		getContentPane().setLayout(null);
 		
 		scrollPane = new JScrollPane();
@@ -48,18 +55,29 @@ public class DialogListarColchon extends JDialog implements ActionListener {
 		getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
+		textArea.setBackground(new Color(240, 255, 255));
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 15));
 		scrollPane.setViewportView(textArea);
 		{
 			JPanel buttonPane = new JPanel();
-			buttonPane.setBounds(10, 240, 446, 33);
+			buttonPane.setBackground(new Color(224, 255, 255));
+			buttonPane.setBounds(10, 240, 446, 39);
 			getContentPane().add(buttonPane);
 			buttonPane.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 			
+			Image iconoImagen = new ImageIcon("imagenes/listar.png").getImage();
+			ImageIcon icono = new ImageIcon(iconoImagen.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
 			btnListar = new JButton("Listar");
-			btnListar.addActionListener(this);
+			btnListar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			btnListar.setIcon(icono);
+			btnListar.addActionListener(this);			
 			buttonPane.add(btnListar);
 			
+			Image img= new ImageIcon("imagenes/cerrar.png").getImage();
+			ImageIcon img2=new ImageIcon(img.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
 			btnCerrar = new JButton("Cerrar");
+			btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+			btnCerrar.setIcon(img2);
 			btnCerrar.addActionListener(this);
 			buttonPane.add(btnCerrar);
 		}

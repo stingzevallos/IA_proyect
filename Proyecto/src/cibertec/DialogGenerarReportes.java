@@ -10,6 +10,12 @@ import javax.swing.JComboBox;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 public class DialogGenerarReportes extends JDialog implements ActionListener {
 	/**
@@ -38,31 +44,42 @@ public class DialogGenerarReportes extends JDialog implements ActionListener {
 	 * Create the dialog.
 	 */
 	public DialogGenerarReportes() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/dream.png"));
+		getContentPane().setBackground(new Color(64, 224, 208));
 		setTitle("Generar reportes");
 		setModal(true);
-		setBounds(100, 100, 483, 300);
+		setBounds(100, 100, 627, 360);
 		getContentPane().setLayout(null);
 		
 		lblTipoDeReporte = new JLabel("Tipo de reporte");
-		lblTipoDeReporte.setBounds(10, 11, 98, 14);
+		lblTipoDeReporte.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTipoDeReporte.setBounds(12, 17, 118, 19);
 		getContentPane().add(lblTipoDeReporte);
 		
 		comboBox = new JComboBox<String>();
+		comboBox.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		comboBox.setBackground(new Color(224, 255, 255));
 		comboBox.addActionListener(this);
 		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Ventas por marca", "Marcas con venta optima", "Precios en relacion al promedio", "Precio promedio, mayor y menor"}));
-		comboBox.setBounds(118, 8, 200, 20);
+		comboBox.setBounds(126, 13, 271, 26);
 		getContentPane().add(comboBox);
 		
 		scrollPane = new JScrollPane();
-		scrollPane.setBounds(10, 36, 447, 214);
+		scrollPane.setBounds(10, 52, 587, 248);
 		getContentPane().add(scrollPane);
 		
 		textArea = new JTextArea();
 		scrollPane.setViewportView(textArea);
+		textArea.setFont(new Font("Monospaced", Font.PLAIN, 17));
+		textArea.setBackground(new Color(224, 255, 255));
 		
+		Image img= new ImageIcon("imagenes/cerrar.png").getImage();
+		ImageIcon img2=new ImageIcon(img.getScaledInstance(16, 16, Image.SCALE_SMOOTH));
 		btnCerrar = new JButton("Cerrar");
+		btnCerrar.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		btnCerrar.setIcon(img2);
 		btnCerrar.addActionListener(this);
-		btnCerrar.setBounds(368, 7, 89, 23);
+		btnCerrar.setBounds(485, 12, 111, 29);
 		getContentPane().add(btnCerrar);
 	}
 

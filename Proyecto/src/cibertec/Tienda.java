@@ -20,7 +20,7 @@ import javax.swing.JPasswordField;
 import java.awt.Toolkit;
 import java.awt.Color;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
+import java.awt.Font;
 
 public class Tienda extends JFrame implements ActionListener {
 
@@ -161,23 +161,31 @@ public class Tienda extends JFrame implements ActionListener {
 	 * Create the frame.
 	 */
 	public Tienda() {
-		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Admin\\Downloads\\dream.png"));
+		setBackground(Color.WHITE);
+		setFont(new Font("Dialog", Font.PLAIN, 24));
+		setIconImage(Toolkit.getDefaultToolkit().getImage("imagenes/dream.png"));
 		setTitle(NOMBRE_TIENDA);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 750, 450);
 		
 		menuBar = new JMenuBar();
+		menuBar.setFont(new Font("Segoe UI Light", Font.PLAIN, 16));
+		menuBar.setBackground(Color.CYAN);
 		setJMenuBar(menuBar);
 		
 		mnArchivo = new JMenu("Archivo");
+		mnArchivo.setBackground(Color.WHITE);
+		mnArchivo.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnArchivo.setEnabled(false);
 		menuBar.add(mnArchivo);
 		
 		mntmSalir = new JMenuItem("Salir");
+		mntmSalir.setBackground(Color.WHITE);
 		mntmSalir.addActionListener(this);
 		mnArchivo.add(mntmSalir);
 		
 		mnMantenimiento = new JMenu("Mantenimiento");
+		mnMantenimiento.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnMantenimiento.setEnabled(false);
 		menuBar.add(mnMantenimiento);
 		
@@ -194,6 +202,7 @@ public class Tienda extends JFrame implements ActionListener {
 		mnMantenimiento.add(mntmListarColchones);
 		
 		mnVentas = new JMenu("Ventas");
+		mnVentas.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnVentas.setEnabled(false);
 		menuBar.add(mnVentas);
 		
@@ -206,6 +215,7 @@ public class Tienda extends JFrame implements ActionListener {
 		mnVentas.add(mntmGenerarReportes);
 		
 		mnConfiguracion = new JMenu("Configuraci\u00F3n");
+		mnConfiguracion.setFont(new Font("Segoe UI", Font.PLAIN, 16));
 		mnConfiguracion.setEnabled(false);
 		menuBar.add(mnConfiguracion);
 		
@@ -226,6 +236,8 @@ public class Tienda extends JFrame implements ActionListener {
 		mnConfiguracion.add(mntmConfigurarPremioSorpresa);
 		
 		mnAyuda = new JMenu("Ayuda");
+		mnAyuda.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+		mnAyuda.setBackground(Color.WHITE);
 		mnAyuda.setEnabled(false);
 		menuBar.add(mnAyuda);
 		
@@ -239,45 +251,62 @@ public class Tienda extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		lblContraseña = new JLabel("Contrase\u00F1a");
-		lblContraseña.setBounds(185, 115, 90, 16);
-		contentPane.add(lblContraseña);
+		
+		
+		
 		
 		txtUsuario = new JTextField();
-		txtUsuario.setBounds(273, 80, 133, 22);
+		txtUsuario.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		txtUsuario.setBounds(273, 84, 133, 36);
 		contentPane.add(txtUsuario);
 		txtUsuario.setColumns(10);
 		
 		btnProcesar = new JButton("Procesar");
+		btnProcesar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnProcesar.setIcon(new ImageIcon("imagenes/procesar.gif"));
 		btnProcesar.addActionListener(this);
-		btnProcesar.setBounds(418, 62, 97, 25);
+		
+		
+		
+		Image img= new ImageIcon("imagenes/locked.png").getImage();
+		ImageIcon img2=new ImageIcon(img.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
+		
+		lblContraseña = new JLabel("");
+		lblContraseña.setIcon(img2);
+		lblContraseña.setBounds(195, 142, 75, 67);		
+		contentPane.add(lblContraseña);
+		btnProcesar.setBounds(446, 84, 133, 35);
 		contentPane.add(btnProcesar);
 		
 		btnBorrar = new JButton("Borrar");
+		btnBorrar.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		btnBorrar.setIcon(new ImageIcon("imagenes/borrar.gif"));
 		btnBorrar.addActionListener(this);
-		btnBorrar.setBounds(418, 91, 97, 25);
+		btnBorrar.setBounds(446, 130, 133, 31);
 		contentPane.add(btnBorrar);
 		
 		pswContraseña = new JPasswordField();
-		pswContraseña.setBounds(273, 112, 133, 22);
+		pswContraseña.setFont(new Font("Tahoma", Font.PLAIN, 17));
+		pswContraseña.setBounds(273, 158, 133, 36);
 		contentPane.add(pswContraseña);
 				
 		//imagen
-		Image iconoImagen = new ImageIcon("C:\\Users\\Admin\\Downloads\\user.png").getImage();
+		Image iconoImagen = new ImageIcon("imagenes/user.png").getImage();
 		ImageIcon icono = new ImageIcon(iconoImagen.getScaledInstance(50, 50, Image.SCALE_SMOOTH));
 		
 		label = new JLabel("");
 		label.setIcon(icono);
-		label.setBounds(185, 56, 66, 55);
+		label.setBounds(195, 74, 66, 55);
 		contentPane.add(label);
 		
 		lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Admin\\Downloads\\Music\\fondo-blanco.jpg"));
-		lblNewLabel.setBounds(131, 34, 460, 121);
+		lblNewLabel.setFont(new Font("Trajan Pro", Font.PLAIN, 15));
+		lblNewLabel.setIcon(new ImageIcon("imagenes/fondo-blanco.jpg"));
+		lblNewLabel.setBounds(142, 43, 460, 196);
 		contentPane.add(lblNewLabel);
 		
 		lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Admin\\Pictures\\fondo-celeste-trans.png"));
+		lblNewLabel_1.setIcon(new ImageIcon("imagenes/fondo-celeste-trans.png"));
 		lblNewLabel_1.setBounds(0, 0, 732, 377);
 		contentPane.add(lblNewLabel_1);
 		
